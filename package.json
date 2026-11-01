@@ -1,0 +1,20 @@
+{
+  "name": "cheongju-bio-class",
+  "version": "1.0.0",
+  "description": "2026 청주여자중학교 중3 생명기술 수업",
+  "scripts": {
+    "test": "node scripts/test.cjs",
+    "serve": "python -m http.server 4173 --bind 127.0.0.1"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "commonjs",
+  "dependencies": {
+    "@pdf-lib/fontkit": "1.1.1",
+    "pdf-lib": "1.17.1"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0"
+  },
+  "private": true
+}
