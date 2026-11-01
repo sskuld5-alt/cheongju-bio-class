@@ -8,7 +8,7 @@
     const safe=value=>Array.from(String(value??'')).map(c=>c==='\n'||c==='\t'||supported.has(c.codePointAt(0))?c:'[U+'+c.codePointAt(0).toString(16).toUpperCase()+']').join('').replace(/\t/g,'    ');
     const ink=rgb(.18,.16,.25),purple=rgb(.40,.29,.63),muted=rgb(.4,.37,.46);
     let page,y,pageNo=0;
-    function newPage(){page=pdf.addPage([595.28,841.89]);pageNo++;y=775;page.drawRectangle({x:0,y:820,width:595.28,height:22,color:rgb(.92,.89,.97)});page.drawText(safe('오송 바이오 연구노트 · 내 답안'),{x:45,y:800,size:9,font,color:purple});page.drawText(String(pageNo),{x:540,y:27,size:9,font,color:muted});page.drawText(safe('청주여자중학교 3학년 | 기술·가정 | 2026'),{x:45,y:27,size:8,font,color:muted});}
+    function newPage(){page=pdf.addPage([595.28,841.89]);pageNo++;y=775;page.drawRectangle({x:0,y:820,width:595.28,height:22,color:rgb(.92,.89,.97)});page.drawText(safe('중학교 3학년 생명기술 연구노트 · 내 답안'),{x:45,y:800,size:9,font,color:purple});page.drawText(String(pageNo),{x:540,y:27,size:9,font,color:muted});page.drawText(safe('청주여자중학교 3학년 | 기술·가정 | 2026'),{x:45,y:27,size:8,font,color:muted});}
     function ensure(h){if(y-h<55)newPage();}
     function write(value,size=11,color=ink,gap=7){
       const lineHeight=size*1.7; const maxWidth=505;
@@ -20,8 +20,8 @@
       }
       for(const line of lines){ensure(lineHeight);if(line)page.drawText(line,{x:45,y,size,font,color});y-=lineHeight;}y-=gap;
     }
-    newPage();pdf.setTitle('오송 바이오 연구노트 - 내 활동지');pdf.setAuthor('청주여자중학교 수업 자료');pdf.setSubject('2026학년도 중3 기술·가정 생명기술');
-    write('나의 오송 바이오 연구노트',23,purple,15);
+    newPage();pdf.setTitle('중학교 3학년 생명기술 연구노트 - 내 활동지');pdf.setAuthor('청주여자중학교 수업 자료');pdf.setSubject('2026학년도 중3 기술·가정 생명기술');
+    write('중학교 3학년 생명기술 연구노트',23,purple,15);
     const identity=state.identity||{},answers=state.answers||{};
     write('반: '+(identity.classroom||'미입력')+'   번호: '+(identity.number||'미입력'),11);
     write('이름 / 별칭: '+(identity.student||'미입력')+'   모둠: '+(identity.team||'미입력'),11);

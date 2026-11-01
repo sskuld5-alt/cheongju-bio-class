@@ -9,7 +9,7 @@ for name,count in [('bio-learning-kit.pdf',4),('bio-teacher-guide.pdf',3)]:
     print(name, count, 'pages, Korean text present')
 for name in ['answer-empty.pdf','answer-long.pdf']:
     p=ROOT/'tmp'/name;r=PdfReader(p);content='\n'.join(page.extract_text() for page in r.pages)
-    assert '나의 오송 바이오 연구노트' in content
+    assert '중학교 3학년 생명기술 연구노트' in content
     if 'long' in name:
         for marker in ['끝-firstThought','끝-systemAnswer','끝-need','끝-idea','끝-benefit','끝-care','끝-peer','끝-exit','[U+1F9EC]']:assert marker in content,marker
     d=fitz.open(p)

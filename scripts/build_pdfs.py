@@ -24,7 +24,7 @@ def text(c,value,x,y,width=505,size=10,leading=17,color=INK):
 
 def header(c,n,kind,title,subtitle):
     c.setFillColor(HexColor('#eee8fa'));c.rect(0,H-17,W,17,fill=1,stroke=0)
-    text(c,'OSONG BIO LAB / 2026',45,805,size=8,leading=12,color=PURPLE)
+    text(c,DATA['title'],45,805,size=8,leading=12,color=PURPLE)
     text(c,kind,415,805,width=135,size=8,leading=12,color=PURPLE)
     text(c,title,45,770,size=25,leading=34)
     text(c,subtitle,45,722,size=10,leading=16,color=MUTED)

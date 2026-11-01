@@ -40,7 +40,7 @@ function input(w,node,value){node.value=value;node.dispatchEvent(new w.Event('in
  sw.HTMLAnchorElement.prototype.click=function(){downloadName=this.download;};
  input(sw,sd.getElementById('idea'),'브라우저 모듈 답안 저장 검증');sd.getElementById('download-answer').click();
  for(let i=0;i<200&&sd.getElementById('download-answer').disabled;i++)await new Promise(r=>setTimeout(r,50));
- assert.equal(downloadName,'오송바이오_내활동지.pdf');assert.equal(downloadedBlob.type,'application/pdf');
+ assert.equal(downloadName,'중학교3학년_생명기술_내활동지.pdf');assert.equal(downloadedBlob.type,'application/pdf');
  const downloadedBytes=await new Promise((resolve,reject)=>{const r=new sw.FileReader();r.onload=()=>resolve(new Uint8Array(r.result));r.onerror=reject;r.readAsArrayBuffer(downloadedBlob);});
  fs.writeFileSync(path.join(root,'tmp/answer-browser-module.pdf'),downloadedBytes);assert((await PDFLib.PDFDocument.load(downloadedBytes)).getPageCount()>=2);assert.equal(successful.errors.length,0);sw.close();pass('shipped browser libraries generate a valid PDF and trigger a named download');
  console.log(`${checks} checks passed. PDF pages: ${doc.getPageCount()}. Browser visual QA is separate.`);
