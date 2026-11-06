@@ -19,11 +19,14 @@
 ```sh
 npm ci
 npm test
+npm run test:browser
 python -m pip install reportlab pypdf pymupdf
 python scripts/build_pdfs.py
 python scripts/check_pdfs.py
 python -m http.server 4173 --bind 127.0.0.1
 ```
+
+브라우저 검수는 설치된 Chrome을 Playwright의 독립된 임시 세션으로 실행합니다. 기본 대상은 배포 페이지이며 `REVIEW_URL` 환경 변수로 다른 주소를 지정할 수 있습니다. 화면 캡처, 내려받은 PDF, 결과 JSON은 Git에서 제외된 `tmp/browser-review`에 저장됩니다. 검수 범위는 [VERIFICATION.md](VERIFICATION.md)를 참고하세요.
 
 `lesson.json`은 웹·PDF의 공통 문항 원본입니다. `app.js`는 화면·저장·퀴즈, `pdf.js`는 답안 PDF 생성을 담당합니다. 수정 후 고정 PDF를 다시 생성해야 합니다. GitHub Pages는 `main`의 루트(`/`)를 게시합니다. 상대 경로를 사용하므로 프로젝트 하위 URL에서도 동작합니다.
 
